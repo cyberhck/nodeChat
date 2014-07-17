@@ -24,6 +24,7 @@
 		</div>
 	</div>
 		<form id="message" action="#">
+		<input type="color" id="#color">
 			<input type="text" id="mm" ng-model="message" placeholder="Message" class="form-control">
 			<br>
 			<input type="submit" name="submit" value="send" class="btn btn-primary btn-lg">
@@ -43,12 +44,14 @@
 		messageForm.submit(function(e){
 			e.preventDefault();
 			field=$("#mm");
+			color=$("#color").val();
 			if(field.val()=="")
 				return false;
 			console.log("sent: "+$("#mm").val());
 			$(".messages").append("<p class='text-info'>"+field.val()+"</p><br>")
-			socket.emit('chat',$('#mm').val());
+			socket.emit('chat',"<font color='"+color+"'>"+$('#mm').val()+"</font>");
 			$("#mm").val("");
+			
 
 		});
 	</script>
