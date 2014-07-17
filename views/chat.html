@@ -35,6 +35,7 @@
 		socket.on('chat',function(data){
 			console.log("received "+data);
 			$(".messages").append(data+"<br>")
+			var a = document.getElementsByClassName("jumbotron"); a[0].scrollTop = a[0].scrollHeight;
 		})
 		$message=$("#mm")[0].value;
 		
@@ -45,7 +46,7 @@
 			e.preventDefault();
 			field=$("#mm");
 			color=$("#color").val();
-			console.log(color);
+			
 			if(field.val()=="")
 				return false;
 			a=a=window.location.pathname;
@@ -56,6 +57,7 @@
 			message=name+":<font color='"+color+"'>"+$('#mm').val()+"</font>";
 			$(".messages").append(message+"<br>");
 			socket.emit('chat',message);
+			var a = document.getElementsByClassName("jumbotron"); a[0].scrollTop = a[0].scrollHeight;
 			$("#mm").val("");
 
 
