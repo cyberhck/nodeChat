@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" ng-app>
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
@@ -8,13 +8,36 @@
 		<link rel="shortcut icon" href="../favicon.ico"> 
 		<link rel="stylesheet" type="text/css" href="css/default.css" />
 		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script src="angular.js"></script>
 		<script src="js/modernizr.custom.js"></script>
+		<style>
+			.hidden{
+				visibility: hidden;
+			}
+			.input{
+				padding:10px 15px 10px 20px;
+				border-radius:6px;
+				border:1px solid #ccc;
+				width:250px;
+			}
+			.input:focus,.input:active{
+				border:1px solid #aaa;
+				outline: none;
+			}
+			body{
+				overflow:hidden;
+			}
+		</style>
 	</head>
 	<body>
 		<div class="container">
 			
 			<header>
-				<h1>NODECHAT<span>Have a private chat with your friends</span></h1>	
+				<h1>NODECHAT<span>Have a private chat with your friends</span></h1>
+					<input type="text" class="input" ng-model="nick" placeholder="Choose a Nick Name">
+					<input type="submit" class="hide" value="submit" style="display:none;">
+				<hr color="#eee">
+				<div ng-class="hidden"><a href="/chat/{{nick}}">Enter as {{nick}}</a></div>
 			</header>
 			
 			<section id="set-8">
