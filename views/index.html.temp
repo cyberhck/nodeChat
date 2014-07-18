@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Choose a nick</title>
+	<script src="jquery.js"></script>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="angular.js"></script>
+</head>
+<body>
+<div class="jumbotron">
+<p class="lead">Choose a NickName</p>
+<input type="text" ng-model="nick" class="form-control" placeholder="coolGuy">
+
+
+</div>
+<a href="/chat/{{nick}}" class="btn btn-primary btn-block">Enter as {{nick}}</a>
+</body>
+</html>
