@@ -27,6 +27,15 @@ io.sockets.on('connection', function(socket) {
 		console.log(data);
 		data=data.replace("<","&lt;");
 		data=data.replace(">","&gt;");
+		data=data.replace(":)","<img src='/emoticons/Glad.png' height='18' width='18' />");
+		data=data.replace(":D","<img src='/emoticons/Happy.png' height='18' width='18' />");
+		data=data.replace(":@","<img src='/emoticons/Angry.png' height='18' width='18' />");
+		data=data.replace(":'(","<img src='/emoticons/Cry.png' height='18' width='18' />");
+		data=data.replace(";)","<img src='/emoticons/Ok.png' height='18' width='18' />");
+		data=data.replace(":))","<img src='/emoticons/Blush.png' height='18' width='18' />");
+		data=data.replace(":(","<img src='/emoticons/Sad.png' height='18' width='18' />");
+
+
 		socket.broadcast.emit('chat', data);
 	});
 });
