@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app oncontextmenu="return false;">
 <head>
 	<meta charset="UTF-8">
 	<title>{{title}}</title>
@@ -24,7 +24,6 @@
 		</div>
 	</div>
 		<form id="message" action="#">
-		<input type="color" id="color">
 			<input type="text" id="mm" ng-model="message" placeholder="Message" class="form-control">
 			<br>
 			<input type="submit" name="submit" value="send" class="btn btn-primary btn-lg">
@@ -45,16 +44,14 @@
 		messageForm.submit(function(e){
 			e.preventDefault();
 			field=$("#mm");
-			color=$("#color").val();
+			
 			
 			if(field.val()=="")
 				return false;
 			a=a=window.location.pathname;
 			a=a.split("/")
 			name=a[2];
-
-			console.log("sent: "+$("#mm").val());
-			message=name+":<font color='"+color+"'>"+$('#mm').val()+"</font>";
+			message=name+":"+$('#mm').val();
 			$(".messages").append(message+"<br>");
 			socket.emit('chat',message);
 			var a = document.getElementsByClassName("jumbotron"); a[0].scrollTop = a[0].scrollHeight;
